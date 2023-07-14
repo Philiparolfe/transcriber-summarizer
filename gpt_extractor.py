@@ -1,7 +1,7 @@
 import openai
 # Dont forget to enter API key
-from whisper_module import API_KEY
-openai.api_key = API_KEY
+from keys import MY_KEY
+openai.api_key = MY_KEY
 
 MESSAGES=[
         {"role": "system", "content": "You are working as an AI-powered summarization tool, tasked with extracting the key points from an audio transcript. Your goal is to provide a concise summary that captures the main ideas, important details, and relevant insights from the conversation. You have been provided with an audio transcript on [insert topic], and your task is to generate a summary that is no more than [insert word/character limit]. Keep in mind that the summary should be coherent, comprehensive, and reflect the essence of the conversation while omitting redundant or trivial information. Provide a summary that captures the most crucial aspects of the audio transcript, enabling users to grasp the core message efficiently."},

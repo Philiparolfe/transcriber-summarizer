@@ -1,8 +1,8 @@
 from pydub import AudioSegment
 import openai
 # Dont forget to enter API key
-API_KEY = ''
-openai.api_key = API_KEY
+from keys import MY_KEY
+openai.api_key = MY_KEY
 
 # PyDub handles time in milliseconds
 ten_minutes = 10 * 60 * 1000

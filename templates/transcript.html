@@ -4,37 +4,6 @@ Index Page
 {% endblock %}
 {% block content %}
 <script>
-    function getStatus(){
-        fetch('http://127.0.0.1:5000/status')
-        .then(response => response.text())
-        .then(data => {
-          // Process the returned data
-          console.log(data);
-        })
-        .catch(error => {
-          // Handle any errors that occur during the request
-          console.log('Error:', error);
-        });
-    }
-
-    
-    
-    function changeColor(newColor) {
-        const elem = document.getElementById("head");
-        
-        elem.classList.remove("button");
-        elem.classList.add("buttonAn")
-        
-      }
-    function glowOn(){
-        const headEl = document.getElementById("title")        
-        headEl.classList.add("text-glow")
-    }
-    function glowOff(){
-        const headEl = document.getElementById("title")        
-        headEl.classList.remove("text-glow")
-    }
-
 </script>
 
     <main>
@@ -53,9 +22,9 @@ Index Page
             <p>
               {{ text }}
             </p>
-            <form action="/extract"><input onclick="changeColor('blue'); glowOff();" class="button" type="submit" value="ChatGPT" />
+            <form action="/extract"><input class="button" type="submit" value="ChatGPT" />
             </form>
-            <form action="/new"><input onclick="changeColor('blue'); glowOff();" class="button" type="submit" value="RETURN" />
+            <form action="/new"><input class="button" type="submit" value="RETURN" />
             </form>
             
         

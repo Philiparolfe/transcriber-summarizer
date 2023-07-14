@@ -1,1 +1,4 @@
 *keys.py
+.venv/
+build/
+dist/

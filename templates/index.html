@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block title %}
-Index Page
+AI EXTRACTOR
 {% endblock %}
 {% block content %}
 <script>
@@ -20,22 +20,23 @@ Index Page
     
     
     function changeColor(newColor) {
-        const elem = document.getElementById("head");
-        
-        elem.classList.remove("button");
-        elem.classList.add("buttonAn")
-        
-      }
-    function glowOn(){
-        const headEl = document.getElementById("title")        
-        headEl.classList.add("text-glow")
+      const elem = document.getElementById("head");
+      
+      elem.classList.remove("button");
+      elem.classList.add("buttonAn")
+      
     }
-    function glowOff(){
-        const headEl = document.getElementById("title")
-        const elem = document.getElementById("head");
-        elem.classList.remove("text-glow")        
-        headEl.classList.remove("text-glow")
-    }
+  function glowOn(){
+      const headEl = document.getElementById("title")        
+      headEl.classList.add("text-glow")
+  }
+  function glowOff(){
+      const headEl = document.getElementById("title")
+      const elem = document.getElementById("head");
+      elem.classList.remove("text-glow")   
+      elem.classList.remove("buttonAn")     
+      headEl.classList.remove("text-glow")
+  }
 
 </script>
 

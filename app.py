@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request, redirect
+#GUI
+from flaskwebgui import FlaskUI
+
 import recorder as r
 import whisper_module as wspr
 from time import sleep
@@ -7,8 +10,11 @@ import gpt_extractor as gpt
 
 
 
+
 app = Flask(__name__)
 
+
+TRANS = '' 
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -18,6 +24,8 @@ def index():
 
 @app.route("/new", methods=['GET', 'POST'])
 def new():
+    global TRANS
+    TRANS = ''
     if os.path.exists("output.wav"):
         os.remove("output.wav")
     return index()
@@ -35,20 +43,23 @@ def stop_recording():
     sleep(3.0)
     return redirect("/transcribe", code=302)
 
+
 @app.route("/transcribe", methods=['GET', 'POST'])
 def get_transcription():
     try:
         text = wspr.whisper_transcribe('output.wav')
+        global TRANS
+        TRANS = text
         return render_template('transcript.html', text=text)
     except Exception as err:
         print(f"{err}")
         return render_template('transcript.html', text="Error")
-        
+       
 @app.route("/extract", methods=['GET', 'POST'])
 def get_extraction():
     try:
-        trans = wspr.whisper_transcribe('output.wav')
-        text = gpt.extract(trans)
+        
+        text = gpt.extract(TRANS)
         return render_template('transcript.html', text=text)
     except Exception as err:
         print(f"{err}")
@@ -59,4 +70,6 @@ def status():
     return f"{r.STATUS}"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    # app.run(host='0.0.0.0', port=8080)
+   
+    FlaskUI(app=app, server="flask").run()

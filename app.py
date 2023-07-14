@@ -7,7 +7,7 @@ import whisper_module as wspr
 from time import sleep
 import os
 import gpt_extractor as gpt
-
+import datetime
 
 
 
@@ -55,14 +55,28 @@ def get_transcription():
         print(f"{err}")
         return render_template('transcript.html', text="Error")
        
+def log_to_file(log_string, file_path):
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    file_name = f"log_{timestamp}.txt"
+    file_path_with_name = os.path.join(file_path, file_name)
+    
+    # Create directory if it doesn't exist
+    if not os.path.exists(file_path):
+        os.makedirs(file_path)
+    
+    with open(file_path_with_name, 'a') as file:
+        file.write(log_string + '\n')
 @app.route("/extract", methods=['GET', 'POST'])
 def get_extraction():
+    
     try:
         
         text = gpt.extract(TRANS)
+        log_to_file(str(text), "logs/")
         return render_template('transcript.html', text=text)
     except Exception as err:
         print(f"{err}")
+        log_to_file("Error.", "logs/")
         return render_template('transcript.html', text="Error")
 
 @app.route("/status", methods=['GET'])

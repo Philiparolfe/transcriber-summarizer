@@ -12,17 +12,17 @@ Index Page
         
 
 
-            <label for="On">
+            <div for="On" id="load">
 
                 
                     <h5 id="head">📖</h5>
                 
 
-            </label>
+            </div>
             <p>
               {{ text }}
             </p>
-            <form action="/extract"><input class="button" type="submit" value="ChatGPT" />
+            <form action="/extract"><input onclick="displayLoading();" class="button" type="submit" value="ChatGPT" />
             </form>
             <form action="/new"><input class="button" type="submit" value="RETURN" />
             </form>

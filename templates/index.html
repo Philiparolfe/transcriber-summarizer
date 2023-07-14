@@ -4,61 +4,38 @@ AI EXTRACTOR
 {% endblock %}
 {% block content %}
 <script>
-    function getStatus(){
-        fetch('http://127.0.0.1:5000/status')
-        .then(response => response.text())
-        .then(data => {
-          // Process the returned data
-          console.log(data);
-        })
-        .catch(error => {
-          // Handle any errors that occur during the request
-          console.log('Error:', error);
-        });
-    }
 
-    
-    
-    function changeColor(newColor) {
-      const elem = document.getElementById("head");
-      
-      elem.classList.remove("button");
-      elem.classList.add("buttonAn")
-      
-    }
-  function glowOn(){
-      const headEl = document.getElementById("title")        
-      headEl.classList.add("text-glow")
-  }
-  function glowOff(){
-      const headEl = document.getElementById("title")
-      const elem = document.getElementById("head");
-      elem.classList.remove("text-glow")   
-      elem.classList.remove("buttonAn")     
-      headEl.classList.remove("text-glow")
-  }
+
+
+
 
 </script>
 
-    <main>
-    <div class="container">
-
-        
+<main onload="deleteChild()">
+  <div class="container">
 
 
-            <div for="On">
 
-                
-                    <h5 id="head">🎙️</h5>
-                
 
-            </div>
-            <form action="/recording"><input onclick="changeColor('red'); glowOn();" class="button" type="submit" value="START" />
-            </form>
-            <form action="/stopped"><input onclick="glowOff();" class="button" type="submit" value="STOP" />
-            </form>
-        
+    <div for="On" id="load">
+
+
+      <h5 id="head">🎙️</h5>
+
+
     </div>
+    <!--<form action="#"><input onclick="changeColor('red'); glowOn(); displayLoading();" class="button"
+        type="submit" value="START" />
+    </form>
+    <form action="#"><input onclick="glowOff(); deleteChild();" class="button" type="submit" value="STOP" />
+    </form>-->
+    <form action="/recording"><input onclick="changeColor('red'); glowOn(); " class="button" type="submit"
+        value="START" />
+    </form>
+    <form action="/stopped"><input onclick="glowOff(); displayLoading();" class="button" type="submit" value="STOP" />
+    </form> 
+
+  </div>
 </main>
 
 

@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>{% block title%} Flask App {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<header>
+    <h1 id="title">AI-Extractor</h1>
+</header>
+<body>
+  {% block content %}
+  {% endblock %}
+</body>
+<div id="copyright" align="center">&copy; 2023 - 2023 github.com/Philiparolfe</div>
+
+</html>

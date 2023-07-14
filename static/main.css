@@ -1,0 +1,258 @@
+/* style.css */
+
+/* Reset all margins and paddings */
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  }
+
+  
+
+  
+  /* Style the header */
+  header {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 200%;
+    
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    background: #5f2c82;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  
+  .text-glow {
+    animation-name:glow;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+  }
+
+  @keyframes glow{
+    from{text-shadow:0px 0px 5px #fff,0px 0px 5px #614ad3;}
+    to{text-shadow:0px 0px 20px #fff,0px 0px 20px #614ad3;}
+  }
+
+
+  /* Remove margin from h1 */
+  
+  
+  /* Style the main content area */
+  main {
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 2rem;
+    /*
+    background-color: #f0f0f0;
+    border: 3px solid;
+    
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    */
+    margin: 0rem 10rem 0 10rem;
+  }
+  
+  
+  
+  /* Style the button */
+  .button-54 {
+    font-family: "Open Sans", sans-serif;
+  
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 5em;
+    margin: 1rem 0 0.5rem 0;
+  
+  }
+  
+  /* Style the button when it is clicked */
+  .button-54:active {
+    box-shadow: 0px 0px 0px 0px;
+    background-color: #e0e0e0;
+    top: 5px;
+    left: 5px;
+  }
+  
+  /* Style the heading */
+  h3 {
+    margin-top: 1em;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  table {
+  
+    align-self: center;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    gap: calc(10% + 20px);
+  
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  p {
+    font-family: "Open Sans", sans-serif;
+    
+    
+    margin: 2em 0 0.5em 0;
+    padding: 2em;
+    position: relative;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+  }
+  
+  /* Style the button */
+  input[type="submit"] {
+    font-family: "Open Sans", sans-serif;
+  
+    letter-spacing: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    
+    width: 10em;
+    height: 3em;
+    margin: 2em 0 0.5em 0;
+  }
+  
+  /* Style the button when it is clicked */
+  input[type="submit"]:active {
+    box-shadow: 0px 0px 0px 0px;
+    background-color: #e0e0e0;
+    top: 5px;
+    left: 5px;
+  }
+  
+  /* Style the heading */
+  h3 {
+    margin-top: 1em;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  table {
+    margin: 0 auto;
+    /* or margin: 0 auto 0 auto */
+    align-self: center;
+    position: relative;
+  }
+  
+  table,
+  th,
+  td {
+    border: none;
+  
+    text-align: center;
+    padding: 2rem;
+    font-size: x-large;
+  }
+  
+  .divide {
+    border-top: 3px solid;
+  }
+  
+  td {
+    text-align: center;
+    align-self: center;
+  }
+  div#copyright {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 5px;
+      /* And if you want the div to be full-width: */
+      left: 0;
+      right: 0;
+  
+  }
+  
+
+  .buttonAn {
+    /* background-color: #1c87c9; */
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    border: none;
+    /*color: #eeeeee;*/
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 20px;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+  }
+  @keyframes glowing {
+    0% {
+      /* background-color: #a80505; */
+      box-shadow: 0 0 10px #a80505;
+    }
+    50% {
+      /* background-color: #e81919; */
+      box-shadow: 0 0 40px #e81919;
+    }
+    100% {
+      /* background-color: #a80505; */
+      box-shadow: 0 0 10px #a80505;
+    }
+  }
+  .buttonAn {
+    animation: glowing 1300ms infinite;
+  }
+  .button {
+    background-color: #1c87c9;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    border: none;
+    color: #eeeeee;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 100%;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  #head {
+    cursor: default;
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 350%;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+  }

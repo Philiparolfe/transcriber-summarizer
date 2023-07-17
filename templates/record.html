@@ -27,7 +27,7 @@ SpeakScribe
           </form>-->
         <button id="startBtn" onclick="glowOn(); " class="button" value="START">START
         </button>
-        <form action="/stopped" onsubmit="document.getElementById('stopBtn').disabled = true;">
+        <form action="/stopped" onsubmit="hideBtns()">
             <button id="stopBtn" onclick="glowOff(); displayLoading();" class="button" type="submit" value="STOP">
                 STOP</button>
         </form>
@@ -35,6 +35,7 @@ SpeakScribe
     </div>
 </main>
 <script>
+    
     navigator.mediaDevices.getUserMedia({ audio: true })
         .then(function (stream) {
             var chunks = [];

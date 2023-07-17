@@ -1,5 +1,7 @@
 from pydub import AudioSegment
 import openai
+
+
 # Dont forget to enter API key
 from keys import MY_KEY
 openai.api_key = MY_KEY

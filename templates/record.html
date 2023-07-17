@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% block title %}
+SpeakScribe
+{% endblock %}
+{% block content %}
+<!--<h1>Audio Recording</h1>
+
+    <button id="startBtn">Start Recording</button>
+    <button id="stopBtn">Stop Recording</button> -->
+<main onload="deleteChild();">
+    <div class="container">
+
+
+
+
+        <div for="On" id="load">
+
+
+            <h5 id="head" class="blur-box">🎙️</h5>
+
+
+        </div>
+        <!--<form action="#"><input onclick="changeColor('red'); glowOn(); displayLoading();" class="button"
+              type="submit" value="START" />
+          </form>
+          <form action="#"><input onclick="glowOff(); deleteChild();" class="button" type="submit" value="STOP" />
+          </form>-->
+        <button id="startBtn" onclick="glowOn(); " class="button" value="START">START
+        </button>
+        <form action="/stopped" onsubmit="document.getElementById('stopBtn').disabled = true;">
+            <button id="stopBtn" onclick="glowOff(); displayLoading();" class="button" type="submit" value="STOP">
+                STOP</button>
+        </form>
+
+    </div>
+</main>
+<script>
+    navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function (stream) {
+            var chunks = [];
+
+            var mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = function (e) {
+                chunks.push(e.data);
+            };
+
+            document.getElementById('startBtn').addEventListener('click', function () {
+                chunks = [];
+                mediaRecorder.start();
+            });
+
+            document.getElementById('stopBtn').addEventListener('click', function () {
+                mediaRecorder.stop();
+
+                mediaRecorder.onstop = function () {
+                    var blob = new Blob(chunks, { type: 'audio/wav' });
+
+                    var formData = new FormData();
+                    formData.append('audio', blob, 'recording.wav');
+
+                    fetch('/upload', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(function (response) {
+                            console.log('Audio uploaded successfully');
+                        })
+                        .catch(function (error) {
+                            console.error('Error uploading audio:', error);
+                        });
+                };
+            });
+        })
+        .catch(function (error) {
+            console.error('Error accessing microphone:', error);
+        });
+
+</script>
+
+{% endblock %}

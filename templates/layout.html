@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>{% block title%} AI Extractor {% endblock %}</title>
+    <title>{% block title%} SpeakScribe {% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,16 +24,14 @@ async function getRequest(url = '') {
   setInterval(keep_alive_server, interval_request)()
 })
 */
-function changeColor(newColor) {
+
+function glowOn() {
+  const headEl = document.getElementById("title")
+  headEl.classList.add("text-glow")
   const elem = document.getElementById("head");
 
   elem.classList.remove("button");
   elem.classList.add("buttonAn")
-
-}
-function glowOn() {
-  const headEl = document.getElementById("title")
-  headEl.classList.add("text-glow")
 }
 function glowOff() {
   const headEl = document.getElementById("title")
@@ -49,6 +47,7 @@ function deleteChild() {
 }
 
 function displayLoading() {
+  document.getElementById('head').style.display = 'none';
   const boxContainer = document.createElement('div')
   boxContainer.id = "box-container"
   const box1 = document.createElement('div')
@@ -69,16 +68,18 @@ function displayLoading() {
   //document.body.appendChild(boxContainer)
   //document.getElementById("load").insertBefore(boxContainer, document.getElementById("load").firstChild);
   document.getElementById("load").appendChild(boxContainer)
+  
+
 }
   </script>
   </head>
 <header>
-    <h1 id="title">AI-Extractor</h1>
+    <h1 id="title">SpeakScribe</h1>
 </header>
 <body>
   {% block content %}
   {% endblock %}
 </body>
-<div id="copyright" align="center">&copy; 2023 - 2023 github.com/Philiparolfe</div>
+<div style="margin-top: 3rem;" id="copyright" align="center">&copy; 2023 - 2023 github.com/Philiparolfe</div>
 
 </html>

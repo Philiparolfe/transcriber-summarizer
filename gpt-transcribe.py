@@ -17,10 +17,10 @@ app = Flask(__name__)
 TRANS = '' 
 
 
-@app.route("/", methods=['GET', 'POST'])
-def index():
-    # os.remove("output.wav")
-    return render_template('index.html')
+# @app.route("/", methods=['GET', 'POST'])
+# def index():
+#     # os.remove("output.wav")
+#     return render_template('index.html')
 
 @app.route("/new", methods=['GET', 'POST'])
 def new():
@@ -29,12 +29,17 @@ def new():
     if os.path.exists("output.wav"):
         os.remove("output.wav")
     return index()
-
+#python record (server side)
 @app.route("/recording", methods=['GET', 'POST'])
 def recording():
     r.STATUS = True
     r.record_audio()
     return index()
+
+#javascript record (client side)
+@app.route("/")
+def index():
+    return render_template("record.html")
 
 @app.route("/stopped", methods=['GET', 'POST'])
 def stop_recording():
@@ -73,17 +78,23 @@ def get_extraction():
         
         text = gpt.extract(TRANS)
         log_to_file(str(text), "logs/")
-        return render_template('transcript.html', text=text)
+        return render_template('extracted.html', text=text)
     except Exception as err:
         print(f"{err}")
         log_to_file("Error.", "logs/")
         return render_template('transcript.html', text="Error")
+
+@app.route("/upload", methods=['POST'])
+def upload():
+    audio = request.files['audio']
+    audio.save('output.wav')
+    return 'Audio uploaded successfully'
 
 @app.route("/status", methods=['GET'])
 def status():
     return f"{r.STATUS}"
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080)
    
-    FlaskUI(app=app, server="flask").run()
+    #FlaskUI(app=app, server="flask").run()
